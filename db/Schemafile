@@ -1,3 +1,26 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+create_table :users, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.string :name, null: false
+  t.timestamp
+end
+
+create_table :works, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.integer :user_id, null: false
+  t.string :title, null: false
+  t.integer :workable_id, null: false
+  t.string :workable_type, null: false
+  t.integer :published_year, null: false
+  t.timestamp
+end
+
+create_table :books, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.integer :page_count, null: false
+  t.timestamp
+end
+
+create_table :movies, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.integer :running_time, null: false
+  t.timestamp
+end
